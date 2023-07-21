@@ -1,0 +1,225 @@
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  box-sizing: border-box;
+  position: relative;
+  overflow-y: hidden;
+}
+
+html {
+  /* formula: 1 rem = 10px; 10px/16px = 62.5% */
+  font-size: 62.5%;
+}
+
+
+.main {
+  align-items: center;
+  background: linear-gradient(to right bottom, #1f1f47, #272829, #272829);
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  position: relative;
+  width: 100%;
+}
+
+
+/* Showbox cube section (on right side) */
+.cube__section {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 50%;
+}
+
+
+
+/* The cube outer container */
+.cube {
+  height: 20rem;
+  perspective: 60rem;
+  width: 20rem;
+  
+}
+
+/* The cube's inner container */
+/* Note: rotationBox keyframes is placed right at the end */
+.cube__container {
+  animation: rotationBox 22s linear infinite forwards;
+  height: 100%;
+  position: relative;
+  transform: translateZ(-10rem);
+  transform-style: preserve-3d;
+  width: 100%;
+  
+}
+
+/* This will target every single side of the cubez */
+.cube__face {
+  align-items: center;
+  background-color: #272829;
+  display: flex;
+  height: 19.5rem;
+  justify-content: center;
+  overflow: hidden;
+  position: absolute;
+  width: 19.5rem;
+  border-radius: 11px;
+  
+}
+
+/* This will target an individual side of the cube */
+.cube__face--front {
+  transform: rotateY(0deg) translateZ(10rem);
+}
+.cube__face--back {
+  transform: rotateY(180deg) translateZ(10rem);
+}
+.cube__face--left {
+  transform: rotateY(-90deg) translateZ(10rem);
+}
+.cube__face--right {
+  transform: rotateY(90deg) translateZ(10rem);
+}
+.cube__face--top {
+  transform: rotateX(90deg) translateZ(10rem);
+}
+.cube__face--bottom {
+  transform: rotateX(-90deg) translateZ(10rem);
+}
+
+/* Videos ==============================================================*/
+
+/* Specifically targeting the <video> element */
+.video__container {
+  height: auto;
+  min-height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+
+
+/* Animation ============================================================*/
+
+@keyframes rotationBox {
+  0% {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
+  25% {
+    transform: rotate3d(0, 1, 1, 90deg);
+  }
+  50% {
+    transform: rotate3d(1, 0, 1, 180deg);
+  }
+  75% {
+    transform: rotate3d(1, 1, 0, 240deg);
+  }
+  100% {
+    transform: rotate3d(1, 1, 1, 360deg);
+  }
+}
+
+
+
+
+
+
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: "Nunito", sans-serif;
+}
+
+body {
+  background: #1f1f47
+}
+
+.container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.card {
+  width: 60%;
+  min-height: 250px;
+  background: rgba( 255, 255, 255, 0.15 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 18px );
+  -webkit-backdrop-filter: blur( 18px );
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border-radius: 1rem;
+  padding: 1.5rem;
+  z-index: 10;
+  color: whitesmoke;
+}
+
+.title {
+  font-size: xx-large;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: larger;
+  margin-bottom: 2rem;
+  margin-top: 30px;
+}
+
+
+
+.blob {
+  position: absolute;
+  width: 425px;
+  height: 425px;
+  background: linear-gradient(
+    180deg,
+    rgba(47, 184, 255,0.42) 31.77%,
+    #5c9df1 100%
+  );
+  mix-blend-mode: color-dodge;
+  -webkit-animation: move 25s infinite alternate;
+          animation: move 25s infinite alternate;
+  transition: 1s cubic-bezier(0.07, 0.8, 0.16, 1);
+}
+
+
+
+@-webkit-keyframes move {
+  from {
+    transform: translate(-100px, -50px) rotate(-90deg);
+    border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+  }
+
+  to {
+    transform: translate(500px, 100px) rotate(-10deg);
+    border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+  }
+}
+
+@keyframes move {
+  from {
+    transform: translate(-100px, -50px) rotate(-90deg);
+    border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+  }
+
+  to {
+    transform: translate(500px, 100px) rotate(-10deg);
+    border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+  }
+} 
+
+   
